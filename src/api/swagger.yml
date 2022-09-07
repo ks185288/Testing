@@ -1,0 +1,46 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: 
+  license:
+    name: MIT
+host: localhost
+schemes:
+  - http
+  -https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /message:
+    post:
+      summary: Create new parameters
+      operationId: PostMessage
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - name: message
+          in: body
+          description: test message
+          type:  string
+            
+          required: true
+      responses: 
+        200: 
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/MessageResponse"
+          
+definitions:
+  MessageResponse:
+    properties:
+      echo: { type: string }
+      timestamp: { type: string }
+      subtitle: { type: string }
+      env: { type: string }
+      version: { type: string }
